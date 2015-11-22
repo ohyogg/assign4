@@ -250,6 +250,7 @@ void draw() {
         //enemyState
     switch(enemyState){
         case ENEMY1:
+        println(enemyY);
           for(int i =0;i< 5;i++){
             if(enemyCrash[i] == false){
               enemyArrayX[i] = enemyX-i*ENEMYLENGTH;
@@ -262,7 +263,7 @@ void draw() {
             image(enemy,enemyArrayX[i],enemyArrayY[i]);
           }
           fighterVSenemyHitTest();
-          shoot();
+          shoot(5);
           flameAndResetCrash();
         break;
             
@@ -278,7 +279,7 @@ void draw() {
               image(enemy,enemyArrayX[i],enemyArrayY[i]);
           }
           fighterVSenemyHitTest();
-          shoot();
+          shoot(5);
           flameAndResetCrash();
           //boundary detection
           if(enemyY-4*ENEMYLENGTH<0){
@@ -322,7 +323,7 @@ void draw() {
             image(enemy,enemyArrayX[i],enemyArrayY[i]);
         }
         fighterVSenemyHitTest();
-        shoot();
+        shoot(8);
         flameAndResetCrash();
         //boundary detection
         if(enemyY+3*ENEMYLENGTH>height){
@@ -431,7 +432,7 @@ void fighterVSenemyHitTest(){
 
 
 
-void shoot(){
+void shoot(int enemyNum){
   //shoot--------//
     if(spacePressedBoo){
       shootPosX[shootCounter] = fighterX;
@@ -448,11 +449,11 @@ void shoot(){
       if(shootBoo[i]){
         image(shoot,shootPosX[i],shootPosY[i]);
       }
-     shootPosX[i]-=3; 
+     shootPosX[i]-=20; 
      
     }
     //shoot hit test
-          for(int i =0;i< 8;i++){
+          for(int i =0;i<enemyNum ;i++){
             for(int j =0;j<6;j++){
               if(shootPosX[j]>enemyArrayX[i]-35 && shootPosX[j]<(enemyArrayX[i]+35) && shootPosY[j]>enemyArrayY[i]-35 && shootPosY[j]<(enemyArrayY[i]+35)){
             
@@ -485,7 +486,7 @@ void flameAndResetCrash(){
            }
           image(flame[(int)flameTime],crashX,crashY);
           
-          // reset crash
+          // reset and reset crash
           if(enemyX >= (width+ENEMYLENGTH*4)){
             enemyX = 0-ENEMYLENGTH;
             enemyY = random(40,400);
