@@ -2,7 +2,7 @@ PImage bg1,bg2;
 PImage enemy, fighter,hp,treasure;
 PImage start1, start2, end1, end2;
 
-PImage shoot;
+PImage shootP;
 
 int bg1X,bg1Y,bg2X,bg2Y;
 
@@ -90,7 +90,7 @@ void setup () {
   flame[3] = loadImage("img/flame4.png");
   flame[4] = loadImage("img/flame5.png");
   
-  shoot = loadImage("img/shoot.png");
+  shootP = loadImage("img/shoot.png");
   
   //bg position
   bg1X = 0;
@@ -447,7 +447,7 @@ void shoot(int enemyNum){
     
     for(int i =0;i<6;i++){
       if(shootBoo[i]){
-        image(shoot,shootPosX[i],shootPosY[i]);
+        image(shootP,shootPosX[i],shootPosY[i]);
       }
      shootPosX[i]-=20; 
      
