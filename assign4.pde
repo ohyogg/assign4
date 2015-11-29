@@ -118,7 +118,7 @@ void setup () {
 }
 
 void draw() {
-  println(crashX,crashY,enemyArrayX[0]);
+  //println(crashX,crashY,enemyArrayX[0]);
   switch(gameState){
   
   case START:
@@ -250,7 +250,7 @@ void draw() {
         //enemyState
     switch(enemyState){
         case ENEMY1:
-        println(enemyY);
+        //println(enemyY);
           for(int i =0;i< 5;i++){
             if(enemyCrash[i] == false){
               enemyArrayX[i] = enemyX-i*ENEMYLENGTH;
@@ -438,7 +438,7 @@ void shoot(int enemyNum){
       shootPosX[shootCounter] = fighterX;
       shootPosY[shootCounter] = fighterY;
       spacePressedBoo =false;
-      println(shootCounter);
+      //println(shootCounter);
       shootCounter++;
       if(shootCounter==6){
         shootCounter =1;
